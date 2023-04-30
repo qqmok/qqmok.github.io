@@ -23,6 +23,10 @@
 
 
         <script type="text/javascript">
+            var container = document.querySelector('.container');
+            window.onload = function () {
+                document.getElementById('left').style.display = 'flex';
+            }
             document.addEventListener("mousemove", parralax);
             function parralax(e) {
                 var rect = document.getElementById('box').getBoundingClientRect();
@@ -38,7 +42,6 @@
                 document.querySelectorAll(".ground").forEach(function(scale) {
                     var rotate_x = (e.clientY)/50 * scale.getAttribute("rotateX");
                     var skew_x = (e.clientX-xmid)/350 * scale.getAttribute("skewX");
-                    console.log(rotate_x, skew_x)
                     scale.style.transform = "rotateX(" + rotate_x + "deg) skewX(" + skew_x + "deg)";
                 })
             }
